@@ -9,7 +9,6 @@ namespace everything {
         char c[C_SIZE];
     };
 
-
 } /*namespace everything*/
 
 #endif
