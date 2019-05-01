@@ -1,0 +1,2 @@
+/opt/compiler/gcc-4.8.2/bin/gcc -I./ -I/usr/local/include -L/usr/local/lib -std=c++11 -lyaml-cpp -lpthread -lstdc++ -g -O0 -c parser/yaml_parser.cpp
+/opt/compiler/gcc-4.8.2/bin/gcc -I./ -I/usr/local/include -L/usr/local/lib -std=c++11 -lyaml-cpp -lpthread -lstdc++ -g -O0 -o batchdo *.o

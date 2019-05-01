@@ -1,0 +1,5 @@
+benchdo
+
+execute commands with ssh in remote machines
+
+use yaml as a config file for making groups
