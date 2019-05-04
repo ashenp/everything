@@ -1,5 +1,5 @@
-CC = /opt/compiler/gcc-4.8.2/bin/gcc
-CXX = /opt/compiler/gcc-4.8.2/bin/g++
+CC = gcc
+CXX = g++
 
 CFLAGS = -I./ -I /usr/local/include -L /usr/local/lib -lyaml-cpp -std=c++11  -lpthread -lstdc++ -g3 -O0
 TARGET := batchdo
