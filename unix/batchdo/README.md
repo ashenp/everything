@@ -12,6 +12,8 @@ gcc 4.7 or later will be needed.
 
 yaml-cpp will be needed.
 
+then make.
+
 ## Using
 
 only support long options;
