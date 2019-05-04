@@ -10,7 +10,7 @@ It is easily to develop for some other demond, mostly the naming services. you c
 
 gcc 4.7 or later will be needed.
 
-yaml-cpp will be needed.
+yaml-cpp will be needed. https://github.com/jbeder/yaml-cpp
 
 then make.
 
