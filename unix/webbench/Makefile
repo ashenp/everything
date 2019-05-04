@@ -1,5 +1,5 @@
-CC = /opt/compiler/gcc-4.8.2/bin/gcc
-CXX = /opt/compiler/gcc-4.8.2/bin/g++
+CC = gcc
+CXX = g++
 
 CFLAGS = -I../../../  -std=c++11 -lpthread
 
