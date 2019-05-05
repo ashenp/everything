@@ -34,7 +34,7 @@ The command to be executed
 
 A config file required for some ways (like yaml, the default way).
 
-## example
+## Example
 
 ./batchdo  --type yaml --group test_group --cmd 'ps -ef | grep nginx' --config='/etc/batchdo/groups.yaml'
 
