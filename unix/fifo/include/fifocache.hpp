@@ -29,7 +29,7 @@ public:
             return;
         }
         
-        if(_cache_items_map.size() > _max_size) {
+        if(_cache_items_map.size() >= _max_size) {
             auto last = _cache_items_list.end();
             last--;
             auto last_item_it  = _cache_items_map.find(last->first);
