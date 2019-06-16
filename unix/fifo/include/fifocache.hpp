@@ -1,18 +1,18 @@
-#ifndef _LRU_CACHE_HPP
-#define _LUR_CACHE_HPP
+#ifndef _FIFO_CACHE_HPP
+#define _FIFO_CACHE_HPP
 
 #include <list>
 #include <unordered_map>
 #include <mutex>
 
 template<typename key_t, typename value_t>
-class lru_cache{
+class fifo_cache{
 public:
     typedef typename std::pair<key_t, value_t> key_value_pair_t;
     typedef typename std::list<key_value_pair_t>::iterator list_iterator_t;
     
     
-    lru_cache(size_t max_size) 
+    fifo_cache(size_t max_size) 
         :_max_size(max_size)
     {
 
@@ -22,21 +22,23 @@ public:
 
         _mutex.lock();
         auto it = _cache_items_map.find(key);
-
-        if(it != _cache_items_map.end() ) {
+        //already in cache, nothing to do
+        if(it != _cache_items_map.end()) {
             *(it->second) = make_pair(key, value);
-            _cache_items_map.erase(it); 
-        } 
-
-        _cache_items_list.push_front(key_value_pair_t(key, value));  
-        _cache_items_map[key] = _cache_items_list.begin();
+            _mutex.unlock();
+            return;
+        }
         
         if(_cache_items_map.size() > _max_size) {
-            auto last = _cache_items_list.end(); 
+            auto last = _cache_items_list.end();
             last--;
-            _cache_items_map.erase(last->first);
+            auto last_item_it  = _cache_items_map.find(last->first);
+            _cache_items_map.erase(last_item_it);  
             _cache_items_list.pop_back();
-        } 
+        }
+        
+        _cache_items_list.push_front(make_pair(key, value));
+        _cache_items_map[key] = _cache_items_list.begin();
         _mutex.unlock();
     }
     
@@ -46,10 +48,16 @@ public:
         if(it == _cache_items_map.end()) {
             throw std::range_error("There is no such key in cache");
         } else  {
-            _cache_items_list.splice(_cache_items_list.begin(), _cache_items_list, it->second);
             return it->second->second;
         }
         _mutex.unlock();
+    }
+    
+    void output() {
+        for(auto i = _cache_items_list.begin(); i !=  _cache_items_list.end(); i++) {
+            std::cout << "[" << (*i).first << ":" << (*i).second << "]";
+        }
+        std::cout << std::endl;
     }
     
     size_t size() const {
