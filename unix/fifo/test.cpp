@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
     cache.put("d", "d");
     cache.put("e", "e");
     cache.put("f", "f");
+    cache.put("f", "ff");
     cache.output(); 
     
     return 0;
