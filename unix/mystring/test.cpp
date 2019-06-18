@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/String.h"
+#include "include/String.hpp"
 
 using namespace std;
 
@@ -9,6 +9,5 @@ int main(int argc, char* argv[]) {
     cout << b << endl;
     b = b + "hehe";
     cout << b << endl;
-    
     return 0;
 }
