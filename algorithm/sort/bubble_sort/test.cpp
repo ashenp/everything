@@ -1,6 +1,4 @@
-#include "quicksort.hpp"
-#include <iostream>
-#include <vector>
+#include "bubblesort.hpp"
 
 using namespace std;
 
@@ -13,7 +11,7 @@ int main(int argc, char* argv[]) {
     vec.push_back(6);
     vec.push_back(4);
     printVector(vec);
-    quickSort_2(vec, 0, 5);
+    bubbleSort(vec);
     printVector(vec);
     return 0;
 }
