@@ -44,7 +44,6 @@ int main(int argc, char** argv) {
     node_5->lchild = node_1;
     node_1->lchild = node_70;
 
-    
     std::cout << "max distance::" << getMaxDistance(node_40) << std::endl;;
     return 0;
     
