@@ -17,7 +17,7 @@ vector<double> hongbao(int money, int num) {
     
     srand((unsigned int)time(NULL));
     while(current_num < total_line_num) {
-        int line_value = (rand() % money-1) + 1;
+        int line_value = rand() % money;
         if(line_set.find(line_value) != line_set.end()) {
             continue;
         } 
@@ -65,6 +65,12 @@ int main(int argc, char** argv) {
     printVector(v3);
     cout << endl;
     cout << endl;
+    vector<double> v3 = hongbao(100, 4);
+    cout << "100块, 4人" << endl;
+    printVector(v3);
+    cout << endl;
+    cout << endl;
+
     return 0;
 
 }
