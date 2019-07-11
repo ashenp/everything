@@ -1,4 +1,3 @@
-#include "tailf.hpp"
 #include <string>
 #include <iostream>
 #include <fstream>
