@@ -4,24 +4,26 @@
 #include <deque>
 #include <cstddef>
 
+template <typename T>
 struct TreeNode{
     int val;
-    TreeNode* lchild;
-    TreeNode* rchild;
-    TreeNode(int x) : val(x), lchild(NULL), rchild(NULL) {}
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(T x) : val(x), left(NULL), right(NULL) {}
 };
 
-void printTree(TreeNode* root) { 
-    std::deque<TreeNode*> q_treenode;
+template <typename T>
+void printTree(TreeNode<T>* root) { 
+    std::deque<TreeNode<T>*> q_treenode;
     q_treenode.push_back(root);
     while(!q_treenode.empty()) {
-        TreeNode* t = q_treenode.front();    
+        TreeNode<T>* t = q_treenode.front();    
         q_treenode.pop_front();    
-        if(t->lchild != NULL) {
-            q_treenode.push_back(t->lchild); 
+        if(t->left != NULL) {
+            q_treenode.push_back(t->left); 
         } 
-        if(t->rchild != NULL) {
-            q_treenode.push_back(t->rchild); 
+        if(t->right != NULL) {
+            q_treenode.push_back(t->right); 
         }
     }
 }
