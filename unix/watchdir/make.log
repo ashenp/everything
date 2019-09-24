@@ -1,0 +1,2 @@
+/opt/compiler/gcc-4.8.2/bin/g++ -g -O0 -lstdc++ -std=c++11 -c test.cpp
+/opt/compiler/gcc-4.8.2/bin/g++ -g -O0 -lstdc++ -std=c++11 -o test test.o
