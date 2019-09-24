@@ -21,6 +21,7 @@ public:
         assert(_inotify_fd != -1);
     };
 
+
     void AddPath(string path, uint32_t mask) {
         int wd = inotify_add_watch(_inotify_fd, path.c_str(), mask);
         assert(wd != -1);
@@ -60,6 +61,7 @@ public:
             _res.push_back( make_pair(file_name, make_pair(event->mask, e_name)));
         }
         
+        free(buffer);
         return _res; 
     }
 
